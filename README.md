@@ -29,7 +29,14 @@ No more having to re-do all this stuff from stratch for each webapp.  Start here
 DIRECTIONS
 ==========
 
-FORK this repo, and download and install and start redis, give your module a name in 'package.json' & run 'grunt test'!
+1. Fork or clone this repo.
+2. Run ```npm-install``` to grab local copies of all dependencies from npm.
+3. If you don't already have it, install jasmine-node globally ```sudo npm -g install jasmine-node```. 
+4. Install redis [redis](http://redis.io/download).  If you install from source, 
+be sure to copy redis-server and redis-cli to your usr/bin/local or other appropriate location.
+5. Start the redis server using ```redis-server```.
+6. Name your module in ```package.json```.
+7. Run ```grunt-test``` to run the full suite of tests!
 
 The TESTING has already been started for you - just write tests THEN code and pound it out!
 

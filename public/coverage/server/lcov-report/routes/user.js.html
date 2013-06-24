@@ -183,16 +183,16 @@
     <h1>Code coverage report for <span class="entity">routes/user.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">28.57% <small>(26 / 91)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">39.56% <small>(36 / 91)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">15.79% <small>(6 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">28.95% <small>(11 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">22.22% <small>(8 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">36.11% <small>(13 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">28.89% <small>(26 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">40% <small>(36 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">routes/</a> &#187; user.js</div>
@@ -431,27 +431,46 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -462,26 +481,7 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -636,8 +636,8 @@ exports.userExists = function(redis, username, cb) {
 exports.registerUser = function(redis, username, password, cb) {
     // make sure this user doesn't already exist
     exports.userExists(redis, username, function(exists) {
-        <span class="missing-if-branch" title="if path not taken"" >I</span>if (exists) {
-<span class="cstat-no" title="statement not covered" >            cb({ error: "User " + username + " already exists" });</span>
+        if (exists) {
+            cb({ error: "User " + username + " already exists" });
         } else {
             redis.incr('global:nextUserId', function(err, uid) {
                 redis.set('uid:' + uid + ':username', username);
@@ -653,18 +653,18 @@ exports.registerUser = function(redis, username, password, cb) {
 &nbsp;
 ////////////////
 &nbsp;
-exports.loginUser = <span class="fstat-no" title="function not covered" >function(redis, username, password, cb) {</span>
-<span class="cstat-no" title="statement not covered" >    exports.userExists(redis, username, <span class="fstat-no" title="function not covered" >function(exists) {</span></span>
-<span class="cstat-no" title="statement not covered" >        if (!exists) {</span>
+exports.loginUser = function(redis, username, password, cb) {
+    exports.userExists(redis, username, function(exists) {
+        <span class="missing-if-branch" title="if path not taken"" >I</span>if (!exists) {
 <span class="cstat-no" title="statement not covered" >            cb({error: "User " + username + " does not exist" });</span>
         } else {
-<span class="cstat-no" title="statement not covered" >            redis.get('username:' + username + ':uid', <span class="fstat-no" title="function not covered" >function(err, uid) {</span></span>
-<span class="cstat-no" title="statement not covered" >                if (!err) {</span>
-<span class="cstat-no" title="statement not covered" >                    redis.get('uid:' + uid + ':password', <span class="fstat-no" title="function not covered" >function(err, pass) {</span></span>
-<span class="cstat-no" title="statement not covered" >                        if (!err) {</span>
-<span class="cstat-no" title="statement not covered" >                            if (pass == password) {</span>
-<span class="cstat-no" title="statement not covered" >                                redis.get('uid:' + uid + ':auth', <span class="fstat-no" title="function not covered" >function(err, auth) {</span></span>
-<span class="cstat-no" title="statement not covered" >                                    cb({ auth: auth, uid: uid });</span>
+            redis.get('username:' + username + ':uid', function(err, uid) {
+                <span class="missing-if-branch" title="else path not taken"" >E</span>if (!err) {
+                    redis.get('uid:' + uid + ':password', function(err, pass) {
+                        <span class="missing-if-branch" title="else path not taken"" >E</span>if (!err) {
+                            <span class="missing-if-branch" title="else path not taken"" >E</span>if (pass == password) {
+                                redis.get('uid:' + uid + ':auth', function(err, auth) {
+                                    cb({ auth: auth, uid: uid });
                                 });
                             } else {
 <span class="cstat-no" title="statement not covered" >                                cb({ error: "Wrong password" });</span>
@@ -753,7 +753,7 @@ exports.deleteUser = <span class="fstat-no" title="function not covered" >functi
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 22 2013 21:15:13 GMT-0700 (PDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jun 23 2013 23:09:16 GMT-0500 (CDT)</div>
 </div>
 
 <script src="../prettify.js"></script>

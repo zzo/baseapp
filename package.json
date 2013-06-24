@@ -15,7 +15,7 @@
     "uuid": "~1.4.1"
   },
   "devDependencies": {
-    "jasmine-node": "",
+    "jasmine-node": "~1.9.1",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.5.4",
     "grunt-contrib-jasmine": "~0.4.2",
@@ -29,6 +29,7 @@
     "istanbul-middleware": "~0.1.0",
     "karma": "~0.8.5",
     "grunt-contrib-watch": "~0.4.4",
-    "grunt-plato": "~0.2.0"
+    "grunt-plato": "~0.2.0",
+    "matchdep": "~0.1.2"
   }
 }

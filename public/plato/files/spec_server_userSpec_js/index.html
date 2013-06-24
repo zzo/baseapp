@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">82.60</p>
+      <p class="stat">81.25</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">54</p>
+      <p class="stat">102</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">7.54</p>
+      <p class="stat">13.00</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.30</p>
+      <p class="stat">0.65</p>
     </div>
   </div>
 </div>
@@ -110,6 +110,7 @@ describe("user actions", function() {
         runs(function() {
             user.registerUser(redis, username, password, function(rez) {
                 expect(rez.message).toEqual('Created user ' + username);
+                expect(rez.error).toBeUndefined();
                 jasmine.asyncSpecDone();
             });
         });
@@ -139,9 +140,56 @@ describe("user actions", function() {
             });
         });
         jasmine.asyncSpecWait();
+    });
 
+    it("should not register a same user", function() {
+        var username = 'mark'
+            , password = 'zot'
+        ;
 
+        runs(function() {
+            user.registerUser(redis, username, password, function(rez) {
+                expect(rez.message).toEqual('Created user ' + username);
+                jasmine.asyncSpecDone();
+            });
+        });
 
+        jasmine.asyncSpecWait();
+
+        runs(function() {
+            user.registerUser(redis, username, password, function(rez) {
+                expect(rez.error).toEqual('User ' + username + ' already exists');
+                expect(rez.message).toBeUndefined();
+                jasmine.asyncSpecDone();
+            });
+        });
+
+        jasmine.asyncSpecWait();
+    });
+
+    it("should login a user", function() {
+        var username = 'mark'
+            , password = 'zot'
+        ;
+
+        runs(function() {
+            user.registerUser(redis, username, password, function(rez) {
+                expect(rez.message).toEqual('Created user ' + username);
+                expect(rez.error).toBeUndefined();
+                jasmine.asyncSpecDone();
+            });
+        });
+
+        jasmine.asyncSpecWait();
+
+        runs(function() {
+            user.loginUser(redis, username, password, function(rez) {
+                expect(rez.uid).toEqual('1');
+                jasmine.asyncSpecDone();
+            });
+        });
+
+        jasmine.asyncSpecWait();
     });
 });</textarea>
   </div>

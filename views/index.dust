@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+
+        <link href="/stylesheets/login.css" rel="stylesheet" media="screen">
+    </head>
+
+    <div id="content"></div>
+
+    {?user}
+        <div>Howdy {user.username}</div>
+        <button type="button" class="btn btn-large btn-primary" id="logout">Logout</button>
+    {:else} 
+        {>login type="login"/}
+        <button type="button" id="lB" class="btn btn-large btn-primary" data-toggle="modal" data-target="#loginForm">Login</button>
+
+        {>login type="register"/}
+        <button type="button" id="rB" class="btn btn-large btn-primary" data-toggle="modal" data-target="#registerForm">Register</button>
+    {/user}
+
+        <div>Session Auth {user} </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/vendor/dust-core-1.2.3.min.js"></script>
+        <script src="/javascripts/templates.js"></script>
+
+        {^user}
+            <script src="/javascripts/login.js"></script>
+        {:else}
+            <script src="/javascripts/logout.js"></script>
+        {/user}
+        <script src="/javascripts/main.js"></script>
+    </body>
+</html>

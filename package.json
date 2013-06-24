@@ -1,0 +1,34 @@
+{
+  "name": "YOUR_APP",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "express": "3.2.5",
+    "dustjs-linkedin": "~1.2.4",
+    "consolidate": "~0.9.1",
+    "redis": "~0.8.3",
+    "connect-redis": "~1.4.5",
+    "uuid": "~1.4.1"
+  },
+  "devDependencies": {
+    "jasmine-node": "",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-jasmine": "~0.4.2",
+    "grunt-jasmine-node": "~0.1.0",
+    "grunt-express": "~0.3.6",
+    "grunt-dustjs": "~0.2.2",
+    "grunt-template-jasmine-istanbul": "~0.2.4",
+    "webdriverjs": "~0.7.8",
+    "grunt-env": "~0.4.0",
+    "istanbul": "~0.1.36",
+    "istanbul-middleware": "~0.1.0",
+    "karma": "~0.8.5",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-plato": "~0.2.0"
+  }
+}

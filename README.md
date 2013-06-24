@@ -86,3 +86,8 @@ A karma.conf.js file is provided for all the client-side unit-tests if you wanna
 ====
 
 let 'er rip!
+
+=====
+
+
+Todo: Add Uglify/Release grunt targets

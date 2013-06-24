@@ -1,4 +1,6 @@
-NO MORE EXCUSES!  Start your Express project off right with all testing infrastructure set up for you!
+# NO MORE EXCUSES! # 
+
+Start your [Express](http://expressjs.com/) project off right with all testing infrastructure set up for you!
 
 Client-side unit tests?
 
@@ -24,38 +26,39 @@ You've seen other 'getting started' tools that set up HTML5 or CSS or JavaScript
 
 No more having to re-do all this stuff from stratch for each webapp.  Start here and you're on your way!
 
-==========
 
 DIRECTIONS
+==========
 
-Clone this repo, and download and install and start redis and that's it!*
+Clone this repo, and download and install and start redis, give your module a name in 'package.json' & run 'grunt test'!
 
-* well also update package.json with your modules name
-
+Start coding (and TESTING).
 
 ==========
 
-baseapp using:
-    - [github](https://github.com/)
-    - [grunt](http://gruntjs.com/)
-    - [jshint](http://www.jshint.com/)
-    - [dustjs-linkedin](http://linkedin.github.io/dustjs/)
-    - [express](http://expressjs.com/)
-    - [jasmine](http://pivotal.github.io/jasmine/)
-    - [jasmine-node](https://github.com/mhevery/jasmine-node)
-    - [webdriver](https://github.com/camme/webdriverjs)
-    - [redis](http://redis.io/)
-    - [authentication](http://redis.io/topics/twitter-clone)
-    - [istanbul](https://github.com/gotwarlost/istanbul)
-    - [plato](https://github.com/jsoverson/plato)
-    - [karma](http://karma-runner.github.io/0.8/index.html)
-    - [phantomjs](http://phantomjs.org/)
-    - [bootstrap](http://twitter.github.io/bootstrap/)
-    - [travis-ci](https://travis-ci.org/)
+baseapp uses:
+
+* [github](https://github.com/)
+* [grunt](http://gruntjs.com/)
+* [jshint](http://www.jshint.com/)
+* [dustjs-linkedin](http://linkedin.github.io/dustjs/)
+* [express](http://expressjs.com/)
+* [jasmine](http://pivotal.github.io/jasmine/)
+* [jasmine-node](https://github.com/mhevery/jasmine-node)
+* [webdriver](https://github.com/camme/webdriverjs)
+* [redis](http://redis.io/)
+* [authentication](http://redis.io/topics/twitter-clone)
+* [istanbul](https://github.com/gotwarlost/istanbul)
+* [plato](https://github.com/jsoverson/plato)
+* [karma](http://karma-runner.github.io/0.8/index.html)
+* [phantomjs](http://phantomjs.org/)
+* [bootstrap](http://twitter.github.io/bootstrap/)
+* [travis-ci](https://travis-ci.org/)
 
 ====
 
 All available grunt tasks:
+--------------------------
 
     - jshint - Run jshint on all files
     - dustjs - compile all templates (in views/**) and create a single template.js file
@@ -79,7 +82,7 @@ All test and coverage output go to the build/ directory (JUnit XML for all tests
 
 ====
 
-A karma.conf.js file is provided for all the client-side unit-tests
+A karma.conf.js file is provided for all the client-side unit-tests if you wanna roll with karma - note 'grunt watch' does the same basic thing...
 
 ====
 

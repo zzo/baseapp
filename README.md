@@ -1,4 +1,4 @@
-# NO MORE EXCUSES! # 
+# NO MORE EXCUSES!
 
 Start your [Express](http://expressjs.com/) project off right with all testing infrastructure set up for you!
 
@@ -20,19 +20,18 @@ Static Code Analysis?
 
 Travis CI?
 
-Check And Mate!
+Check And Mate!  IT'S ALL SET UP FOR YOU INCLUDING THE FIRST BATCH OF CLIENT-SIDE AND SERVER-SIDE UNIT TESTS AND WEBDRIVER TESTS - NO EXCUSES!
 
-You've seen other 'getting started' tools that set up HTML5 or CSS or JavaScript but how about all of it including testing, automation, code coverage, static code anaylsis, and authentication and set up and ready to go?
+You've seen other 'getting started' tools that set up HTML5 or CSS or JavaScript but how about all of it including testing, automation, code coverage, static code anaylsis, and authentication all set up and ready to go?
 
 No more having to re-do all this stuff from stratch for each webapp.  Start here and you're on your way!
-
 
 DIRECTIONS
 ==========
 
 Clone this repo, and download and install and start redis, give your module a name in 'package.json' & run 'grunt test'!
 
-Start coding (and TESTING).
+The TESTING has already been started for you - just write tests THEN code and pound it out!
 
 ==========
 

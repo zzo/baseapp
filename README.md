@@ -29,7 +29,7 @@ No more having to re-do all this stuff from stratch for each webapp.  Start here
 DIRECTIONS
 ==========
 
-Clone this repo, and download and install and start redis, give your module a name in 'package.json' & run 'grunt test'!
+FORK this repo, and download and install and start redis, give your module a name in 'package.json' & run 'grunt test'!
 
 The TESTING has already been started for you - just write tests THEN code and pound it out!
 

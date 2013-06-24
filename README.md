@@ -30,8 +30,9 @@ DIRECTIONS
 ==========
 
 1. Fork or clone this repo.
-2. Run ```npm-install``` to grab local copies of all dependencies from npm.
+2. Run ```npm install``` to grab local copies of all dependencies from npm.
 3. If you don't already have it, install jasmine-node globally ```sudo npm -g install jasmine-node```. 
+3. If you don't already have it, install grunt globally ```sudo npm -g install grunt-cli```. 
 4. Install redis [redis](http://redis.io/download).  If you install from source, 
 be sure to copy redis-server and redis-cli to your usr/bin/local or other appropriate location.
 5. Start the redis server using ```redis-server```.

@@ -133,7 +133,13 @@ module.exports = function(grunt) {
     });
 
     //this replaces the need to load all grunt tasks manually
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    //
+    //   This complains because it's trying to load the instanbul grunt template... :(
+    //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    //  This will fail when there's a grunt task that is named 'grunt-t...' :(
+    //      sorry grunt-text-replace and grunt-typescript!
+    // SO pick your poison - lame minmatch - where is negative lookahead when ya need it??
+    require('matchdep').filterDev('grunt-[^t]*').forEach(grunt.loadNpmTasks);
 
     // Default task(s).
     grunt.registerTask('default', ['jshint']);
@@ -171,7 +177,7 @@ module.exports = function(grunt) {
         var coverCmd = 'node_modules/istanbul/lib/cli.js cover '
             .concat('--dir ')
             .concat(options.coverDir)
-            .concat(' -x ' + "'**/spec/**'" + ' jasmine-node')
+            .concat(' -x ' + "'**/spec/**'" + ' ./node_modules/.bin/jasmine-node')
             .concat(' -- ' )
             .concat(options.specDir)
             .concat(' --forceexit --junitreport --output ')
@@ -197,7 +203,7 @@ module.exports = function(grunt) {
             grunt.task.requires('env:coverage');
         }
 
-        var testCmd = 'jasmine-node '
+        var testCmd = './node_modules/.bin/jasmine-node '
             .concat(options.tests)
             .concat(' --forceexit --junitreport --output ')
             .concat(options.junitDir);

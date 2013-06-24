@@ -1,4 +1,42 @@
+NO MORE EXCUSES!  Start your Express project off right with all testing infrastructure set up for you!
+
+Client-side unit tests?
+
+Server-side unit tests?
+
+Webdriver integration tests?
+
+Code Coverage?
+
+Automation?
+
+Compiled Templates for client-side rendering?
+
+Authentication?
+
+Static Code Analysis?
+
+Travis CI?
+
+Check And Mate!
+
+You've seen other 'getting started' tools that set up HTML5 or CSS or JavaScript but how about all of it including testing, automation, code coverage, static code anaylsis, and authentication and set up and ready to go?
+
+No more having to re-do all this stuff from stratch for each webapp.  Start here and you're on your way!
+
+==========
+
+DIRECTIONS
+
+Clone this repo, and download and install and start redis and that's it!*
+
+* well also update package.json with your modules name
+
+
+==========
+
 baseapp using:
+    - [github](https://github.com/)
     - [grunt](http://gruntjs.com/)
     - [jshint](http://www.jshint.com/)
     - [dustjs-linkedin](http://linkedin.github.io/dustjs/)
@@ -13,6 +51,7 @@ baseapp using:
     - [karma](http://karma-runner.github.io/0.8/index.html)
     - [phantomjs](http://phantomjs.org/)
     - [bootstrap](http://twitter.github.io/bootstrap/)
+    - [travis-ci](https://travis-ci.org/)
 
 ====
 

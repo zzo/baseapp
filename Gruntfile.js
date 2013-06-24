@@ -2,6 +2,7 @@ var path = require('path');
 var exec = require('child_process').exec;
 
 module.exports = function(grunt) {
+
     // Project configuration.
     grunt.initConfig({
         jshint: {
@@ -21,7 +22,7 @@ module.exports = function(grunt) {
                     specs : 'spec/client/**/*.js'
 //                    , keepRunner: true
                     , vendor: [ 
-                        'public/vendor/jquery-2.0.2.min.js'
+                          'public/vendor/jquery-2.0.2.min.js'
                         , 'public/vendor/jasmine-jquery.js' 
                         , 'public/vendor/dust-core-1.2.3.min.js' 
                         , 'vendor/bootstrap/js/bootstrap.min.js'
@@ -131,14 +132,8 @@ module.exports = function(grunt) {
           },
     });
 
-    // Load the plugins
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-express');
-    grunt.loadNpmTasks('grunt-dustjs');
-    grunt.loadNpmTasks('grunt-env');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-plato');
+    //this replaces the need to load all grunt tasks manually
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     // Default task(s).
     grunt.registerTask('default', ['jshint']);

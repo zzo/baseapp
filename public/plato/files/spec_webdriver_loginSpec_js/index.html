@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">201</p>
+      <p class="stat">199</p>
     </div>
   </div>
   <div class="row historical">
@@ -104,20 +104,15 @@ var currentX = 1
     , outputTmpl = 'build/reports/webdriver/coverage_'
 ;
 
-// build out all current coverage_* files??
-
-//
 // 1. Get client-side CC 
 // 2. POST it back to /coverage/client
-// 3. GET & save /coverage/object
-// 4. When all tests are done 'instanbul report ...' them
+// 3. GET & save /coverage/object = total coverage of client + server side code
+// 4. When all tests are done 'istanbul report ...' them (% grunt total_coverage)
 function saveCoverage(client) {
     client.execute("return JSON.stringify(__coverage__);", null, function(err, result) {
         if (err) return;  // guess they don't got coverage
 
         // now post the client-side coverage back to '/client'
-                // url: 'http://127.0.0.1:3000'
-                //  there MUST be a better way to get this
         var options = {
                 hostname: process.env.HOST
                 , port: process.env.PORT
@@ -148,11 +143,11 @@ describe('login tests', function() {
 
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 9999999;
 
+
     beforeEach(function(done) {
-        //client = webdriverjs.remote({ desiredCapabilities: {browserName: 'firefox'} });
-        client = webdriverjs.remote({ desiredCapabilities: {browserName: 'firefox'} });
+        client = webdriverjs.remote({ desiredCapabilities: {browserName: 'phantomjs'} });
         client.init()
-            .url("http://" + process.env.HOST + ':' + process.env.port)
+            .url("http://" + process.env.HOST + ':' + process.env.PORT)
             .pause(500, done);
     });
 
@@ -160,7 +155,10 @@ describe('login tests', function() {
         if (process.env.COVERAGE) {
             saveCoverage(client);
         }
+
+        // just blows out all of the session & user data
         redis.flushdb();
+
         client.end(done);
     });
 

@@ -18,6 +18,7 @@ describe("user actions", function() {
         runs(function() {
             user.registerUser(redis, username, password, function(rez) {
                 expect(rez.message).toEqual('Created user ' + username);
+                expect(rez.error).toBeUndefined();
                 jasmine.asyncSpecDone();
             });
         });
@@ -47,8 +48,56 @@ describe("user actions", function() {
             });
         });
         jasmine.asyncSpecWait();
+    });
 
+    it("should not register a same user", function() {
+        var username = 'mark'
+            , password = 'zot'
+        ;
 
+        runs(function() {
+            user.registerUser(redis, username, password, function(rez) {
+                expect(rez.message).toEqual('Created user ' + username);
+                jasmine.asyncSpecDone();
+            });
+        });
 
+        jasmine.asyncSpecWait();
+
+        runs(function() {
+            user.registerUser(redis, username, password, function(rez) {
+                expect(rez.error).toEqual('User ' + username + ' already exists');
+                expect(rez.message).toBeUndefined();
+                jasmine.asyncSpecDone();
+            });
+        });
+
+        jasmine.asyncSpecWait();
+    });
+
+    it("should login a user", function() {
+        var username = 'mark'
+            , password = 'zot'
+        ;
+
+        runs(function() {
+            user.registerUser(redis, username, password, function(rez) {
+                expect(rez.message).toEqual('Created user ' + username);
+                expect(rez.error).toBeUndefined();
+                jasmine.asyncSpecDone();
+            });
+        });
+
+        jasmine.asyncSpecWait();
+
+        runs(function() {
+            user.loginUser(redis, username, password, function(rez) {
+                expect(rez.uid).toEqual('1');
+                jasmine.asyncSpecDone();
+            });
+        });
+
+        jasmine.asyncSpecWait();
     });
 });
+

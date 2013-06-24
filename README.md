@@ -33,10 +33,10 @@ DIRECTIONS
 2. Run ```npm install``` to grab local copies of all dependencies from npm.
 3. If you don't already have it, install jasmine-node globally ```sudo npm -g install jasmine-node```. 
 3. If you don't already have it, install grunt globally ```sudo npm -g install grunt-cli```. 
-4. Install redis [redis](http://redis.io/download).  If you install from source, 
-be sure to copy redis-server and redis-cli to your usr/bin/local or other appropriate location.
+4. Install [redis](http://redis.io/download).  If you install from source, be sure to copy redis-server and redis-cli to your $PATH (```make install```).
 5. Start the redis server using ```redis-server```.
 6. Name your module in ```package.json```.
+7. To run the webdriver tests make sure selenium is started (```grunt test``` will output instructions for this)
 7. Run ```grunt test``` to run the full suite of tests!
 
 The TESTING has already been started for you - just write tests THEN code and pound it out!

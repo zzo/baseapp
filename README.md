@@ -36,7 +36,7 @@ DIRECTIONS
 be sure to copy redis-server and redis-cli to your usr/bin/local or other appropriate location.
 5. Start the redis server using ```redis-server```.
 6. Name your module in ```package.json```.
-7. Run ```grunt-test``` to run the full suite of tests!
+7. Run ```grunt test``` to run the full suite of tests!
 
 The TESTING has already been started for you - just write tests THEN code and pound it out!
 

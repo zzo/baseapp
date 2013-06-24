@@ -96,5 +96,8 @@ let 'er rip!
 
 =====
 
+[Visit the Wiki For More Documentation!](https://github.com/zzo/baseapp/wiki/)
+
+======
 
 Todo: Add Uglify/Release grunt targets

@@ -72,23 +72,36 @@ module.exports = function(grunt) {
             }
         }
         , watch: {
-            jshint: {
-                files: '<%= jshint.all %>'
-                , tasks: ['jshint'],
+            // If the main app changes (don't have any specific tests for this file :( YET! )
+            mainApp: {
+                files: [ 'app.js' ]
+                , tasks: ['jshint', 'webdriver' ]
+            } 
+            // If any server-side JS changes
+            , serverSide: {
+                files: [ 'routes/**/*.js' ]
+                , tasks: ['jshint', 'jasmine_node_coverage', 'webdriver' ]
             }
-            , jasmine_client: {
-                files: [ '<%= jasmine.test.src %>', '<%= jasmine.test.options.specs %>' ] 
-                , tasks: ['jasmine'],
+            // If any server-side JS TEST changes
+            , serverSideTests: {
+                files: [ 'spec/server/**/*.js' ]
+                , tasks: ['jshint', 'jasmine_node_coverage' ]
             }
-            , jasmine_server: {
-                files: [ '<%= jasmine_node_coverage.options.specDir %>', 'routes/' ]
-                , tasks: ['jasmine_node_coverage'],
+            // If any client-side JS changes
+            , clientSide: {
+                files: [ 'public/javascripts/**/*.js' ]
+                , tasks: ['jshint', 'jasmine', 'webdriver' ]
             }
-            , webdriver: {
-                files: [ '<%= webd.options.tests %>', 'routes/' ]
-                , tasks: ['webdriver'],
+            // If any client-side JS TEST changes
+            , clientSideTests: {
+                files: [ 'spec/client/**/*.js' ]
+                , tasks: ['jshint', 'jasmine' ]
             }
-
+            // If any integration/webdriver JS TEST changes
+            , webDriverTests: {
+                files: [ 'spec/webdriver/**/*.js' ]
+                , tasks: ['jshint', 'webdriver' ]
+            }
         }
         , jasmine_node_coverage: {
             options: {
@@ -111,22 +124,14 @@ module.exports = function(grunt) {
             }
         }
         , plato: {
-            dashr: {
+            myapp: {
               options : {
                 jshint : false
               }
               , files: {
-                'public/plato': ['public/javascripts/**/*.js', 'spec/**/*.js'],
+                //'public/plato': ['public/javascripts/**/*.js', 'spec/**/*.js'],
+                'public/plato': ['public/javascripts/**/*.js', 'routes/**/*.js', 'spec/**/*.js', 'app.js'],
               }
-            }
-            , options: {
-                jshint: {
-                    globals: {
-                        jQuery: true
-                    }
-                    , 'laxcomma': true
-                    , 'multistr': true
-                }
             }
           },
     });

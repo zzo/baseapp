@@ -4,4 +4,6 @@ node_modules
 .DS_Store
 npm-debug.log
 public/coverage/**
+public/plato/**
+public/build/**
 baseapp.wiki

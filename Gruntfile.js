@@ -36,7 +36,6 @@ module.exports = function(grunt) {
                         coverage: 'public/coverage/client/coverage.json'
                         , report:   'public/coverage/client'
                     }
-
                 }
             }
         },
@@ -210,6 +209,11 @@ module.exports = function(grunt) {
 
         exec(testCmd, { }, function(err, stdout, stderr) {
             if (err || stderr) {
+                if (err) {
+                    grunt.log.writeln("ERR: " + err);
+                    grunt.log.writeln(stdout);
+                    grunt.log.writeln(stderr);
+                }
                 if (stderr && stderr.match('connect ECONNREFUSED')) {
                     grunt.log.writeln("Cannot connect to the Selenium JAR - is it running?");
                     grunt.log.writeln("In another window try:");
@@ -221,6 +225,7 @@ module.exports = function(grunt) {
                 }
                 grunt.fatal();
             } else {
+                //grunt.log.writeln(stdout); // debug output
                 if (coverage) {
                     var coverCmd = 'node_modules/istanbul/lib/cli.js report --root '
                         .concat(options.junitDir)

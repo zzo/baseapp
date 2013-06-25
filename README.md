@@ -96,7 +96,7 @@ let 'er rip!
 
 =====
 
-[Visit the Wiki For More Documentation!](https://github.com/zzo/baseapp/wiki/)
+[Visit the Wiki For More Documentation!](wiki/intro.md)
 
 ======
 

@@ -4,10 +4,8 @@ node_js:
   - 0.10
 services: 
   - redis-server
-before_install:
-  - ls
-  - ls node_modules
-  - "java -jar node_modules/webdriverjs/bin/selenium-server-standalone-2.31.0.jar"
+before_script:
+  - "java -jar ./node_modules/webdriverjs/bin/selenium-server-standalone-2.31.0.jar"
 
 
 

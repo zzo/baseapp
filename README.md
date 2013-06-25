@@ -61,10 +61,10 @@ baseapp uses:
 * [bootstrap](http://twitter.github.io/bootstrap/)
 * [travis-ci](https://travis-ci.org/)
 
-====
+=======
 
 All available grunt tasks:
---------------------------
+====
 
     - jshint - Run jshint on all files
     - dustjs - compile all templates (in views/**) and create a single template.js file
@@ -92,12 +92,13 @@ A karma.conf.js file is provided for all the client-side unit-tests if you wanna
 
 ====
 
+[Visit the Wiki For Detailed Documentation!](wiki/intro.md)
+=======
+
+======
+
 let 'er rip!
 
 =====
-
-[Visit the Wiki For More Documentation!](wiki/intro.md)
-
-======
 
 Todo: Add Uglify/Release grunt targets

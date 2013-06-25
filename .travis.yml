@@ -5,7 +5,7 @@ node_js:
 services: 
   - redis-server
 before_script:
-  - "java -jar ./node_modules/webdriverjs/bin/selenium-server-standalone-2.31.0.jar"
+  - "java -jar ./node_modules/webdriverjs/bin/selenium-server-standalone-2.31.0.jar &"
 
 
 

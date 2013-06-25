@@ -70,6 +70,9 @@ module.exports = function(grunt) {
                 COVERAGE: true
                 , HOST: '127.0.0.1'
             }
+            , travis: {
+                BROWSER: '<%= webd.options.browser %>'
+            }
         }
         , watch: {
             // If the main app changes (don't have any specific tests for this file :( YET! )
@@ -115,6 +118,7 @@ module.exports = function(grunt) {
                 tests: 'spec/webdriver/*.js'
                 , junitDir: './build/reports/webdriver/'
                 , coverDir: 'public/coverage/webdriver'
+                , browser: 'phantomjs'
             }
         }
         , total_coverage: {
@@ -156,6 +160,15 @@ module.exports = function(grunt) {
         'webdriver_coverage',
         'total_coverage',
         'plato'
+    ]); 
+
+    grunt.registerTask('travis', [
+        'jshint', 
+        'jasmine',
+        'jasmine_node_coverage',
+        'dustjs', 
+        'env:travis',
+        'webdriver',
     ]); 
 
     // webdriver tests with coverage

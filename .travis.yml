@@ -2,3 +2,10 @@ language: node_js
 node_js:
   - 0.8
   - 0.10
+services: 
+  - redis-server
+before_install:
+  - java -jar ./node_modules/webdriverjs/bin/selenium-server-standalone-2.31.0.jar
+
+
+

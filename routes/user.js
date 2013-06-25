@@ -162,7 +162,7 @@ exports.deleteUser = function(redis, username, cb) {
     redis.get('username:' + username + ':uid', function(err, uid) {
         if (uid) {
             redis.get('uid:' + uid + ':auth', function(err, authKey) {
-                if (err) { return cb({ error: err }) }
+                if (err) { return cb({ error: err }); }
                 var keys = [ 'username', 'password', 'auth' ]
                     , redisKeys = keys.map(function(key) {
                         return 'uid:' + uid + ':key';

@@ -92,7 +92,7 @@ A karma.conf.js file is provided for all the client-side unit-tests if you wanna
 
 ====
 
-[Visit the Wiki For Detailed Documentation!](wiki/intro.md)
+[Visit the Wiki For Detailed Documentation!](https://github.com/zzo/baseapp/wiki)
 =======
 
 ======

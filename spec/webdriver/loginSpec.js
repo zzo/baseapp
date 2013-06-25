@@ -37,6 +37,7 @@ describe('login tests', function() {
             .isVisible('#logout', function(err, val) {
                 // it should NOT be in the DOM!  So expect an error object back
                 assert(err);
+                assert(0);
             })
             .isVisible('button[data-target="#loginForm"]', function(err, val) {
                 assert(val);

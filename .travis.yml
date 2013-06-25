@@ -7,7 +7,3 @@ services:
 before_script:
   - "java -jar ./node_modules/webdriverjs/bin/selenium-server-standalone-2.31.0.jar &"
   - sleep 10
-script: 'grunt travis'
-
-
-

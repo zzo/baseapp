@@ -65,13 +65,11 @@ module.exports = function(grunt) {
             , test: {
                 NODE_ENV : 'test'
                 , HOST: '127.0.0.1'
+                , BROWSER: '<%= webd.options.browser %>'
             }
             , coverage: {
                 COVERAGE: true
                 , HOST: '127.0.0.1'
-            }
-            , travis: {
-                BROWSER: '<%= webd.options.browser %>'
             }
         }
         , watch: {
@@ -118,7 +116,7 @@ module.exports = function(grunt) {
                 tests: 'spec/webdriver/*.js'
                 , junitDir: './build/reports/webdriver/'
                 , coverDir: 'public/coverage/webdriver'
-                , browser: 'phantomjs'
+                , browser: grunt.option('browser') || 'phantomjs'
             }
         }
         , total_coverage: {
@@ -133,7 +131,6 @@ module.exports = function(grunt) {
                 jshint : false
               }
               , files: {
-                //'public/plato': ['public/javascripts/**/*.js', 'spec/**/*.js'],
                 'public/plato': ['public/javascripts/**/*.js', 'routes/**/*.js', 'spec/**/*.js', 'app.js'],
               }
             }
@@ -141,13 +138,12 @@ module.exports = function(grunt) {
     });
 
     //this replaces the need to load all grunt tasks manually
-    //
-    //   This complains because it's trying to load the instanbul grunt template... :(
-    //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-    //  This will fail when there's a grunt task that is named 'grunt-t...' :(
-    //      sorry grunt-text-replace and grunt-typescript!
-    // SO pick your poison - lame minmatch - where is negative lookahead when ya need it??
-    require('matchdep').filterDev('grunt-[^t]*').forEach(grunt.loadNpmTasks);
+    require('matchdep').filterDev('grunt-*').forEach(function(mod) {
+        // these are not grunt plugins
+        if (!mod.match('grunt-template') && !mod.match('grunt-cli')) {
+            grunt.loadNpmTasks(mod);
+        }
+    });
 
     // Default task(s).
     grunt.registerTask('default', ['jshint']);
@@ -167,7 +163,6 @@ module.exports = function(grunt) {
         'jasmine',
         'jasmine_node_coverage',
         'dustjs', 
-        'env:travis',
         'webdriver',
     ]); 
 

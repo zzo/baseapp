@@ -5,6 +5,7 @@ node_js:
 services: 
   - redis-server
 before_script:
+  - "export DISPLAY=:99.0"
   - "java -jar ./node_modules/webdriverjs/bin/selenium-server-standalone-2.31.0.jar &"
 
 

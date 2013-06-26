@@ -71,7 +71,7 @@ All available grunt tasks:
     - jasmine - Run all client-side unit tests in spec/client/** with code coverage
     - jasmine_node_coverage - Run server-side jasmine unit tests in spec/server/** with code coverage
     - webdriver_coverage - Run all jasmine webdriver tests in spec/webdriver with code coverage
-    - webdriver - Run all jasmine webdriver tests in spec/webdriver WITHOUT code coverage (why would you wanna do that?)
+    - webdriver - Run all jasmine webdriver tests in spec/webdriver WITHOUT code coverage
     - express - Start your express server (will only run during the lifetime of the grunt process)
     - total_coverage - aggragates all coverage info into one mongo report
     - plato - run plato report on entire codebase

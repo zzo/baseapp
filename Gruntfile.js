@@ -1,5 +1,6 @@
-var path = require('path');
-var exec = require('child_process').exec;
+var path = require('path')
+    , exec = require('child_process').exec
+;
 
 module.exports = function(grunt) {
 
@@ -156,14 +157,6 @@ module.exports = function(grunt) {
         'webdriver_coverage',
         'total_coverage',
         'plato'
-    ]); 
-
-    grunt.registerTask('travis', [
-        'jshint', 
-        'jasmine',
-        'jasmine_node_coverage',
-        'dustjs', 
-        'webdriver',
     ]); 
 
     // webdriver tests with coverage

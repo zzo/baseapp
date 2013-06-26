@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -6,17 +5,30 @@ var express = require('express')
   , http = require('http')
   , cons = require('consolidate')
   , path = require('path')
+  , Bunyan = require('bunyan')
   , RedisExpress = require('connect-redis')(express)
   , redis = require("redis").createClient()
   , im = require('istanbul-middleware')
   , isCoverageEnabled = (process.env.COVERAGE == "true")
   , app = express()
+  , log = Bunyan.createLogger({
+        name: "YOUR_APP"
+        , serializers : Bunyan.stdSerializers 
+        , streams: [{
+            type: 'rotating-file'
+            , path: 'logs/http.log'
+            , period: '1d'
+            , count: 3
+        }] 
+      })
+  , env = app.get('env')
 ;
 
 // Make sure redis is alive
 //  this will fail async but that's ok we'll get the message
 redis.ping(function(err) {
     if (err) {
+        log.fatal('Unable to connect to REDIS - is it running??');
         console.error('Unable to connect to REDIS - is it running??');
         process.exit(1);
     }
@@ -31,7 +43,6 @@ var routes = require('./routes')
   , user = require('./routes/user')
 ;
 
-
 // all environments
 app.engine('dust', cons.dust);
 app.set('port', process.env.PORT || 3000);
@@ -39,9 +50,25 @@ app.set('host', process.env.HOST || '127.0.0.1');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'dust');
 app.set('redis', redis);
-app.use(express.favicon());
-app.use(express.logger('dev'));
+app.set('logger', log);
 
+app.use(express.favicon());
+
+// bunyan logging
+app.use(function(req, res, next) {
+    var end = res.end;
+    req._startTime = new Date();
+    res.end = function(chunk, encoding){
+        res.end = end;
+        res.end(chunk, encoding);
+        log.info({req: req, res: res, total_time: new Date() - req._startTime}, 'handled request/response');
+    };
+
+    next();
+});
+
+// dynamically add coverage information to client-side JavaScript
+//  and hand off /coverage url
 if (isCoverageEnabled) {
     app.use(im.createClientHandler(path.join(__dirname, 'public'), { 
         matcher: function(req) { return req.url.match(/javascripts/); }
@@ -49,6 +76,7 @@ if (isCoverageEnabled) {
     app.use('/coverage', im.createHandler());
 }
 
+// some standard stuff
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
@@ -59,14 +87,16 @@ app.use(express.session({
 }));
 app.use(app.router);
 
+// lastly static route
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' == env) {
   app.use(express.errorHandler());
 }
 
-if ('test' == app.get('env')) {
+// use test db
+if ('test' == env) {
   app.use(express.errorHandler());
   redis.select(15);
 }

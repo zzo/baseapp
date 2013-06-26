@@ -15,7 +15,7 @@ describe('login tests', function() {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 9999999;
 
     beforeEach(function(done) {
-        client = webdriverjs.remote({ desiredCapabilities: {browserName: process.env.BROWSER || 'firefox'} });
+        client = webdriverjs.remote({ desiredCapabilities: { browserName: process.env.BROWSER }});
         client.init()
             .url("http://" + process.env.HOST + ':' + process.env.PORT)
             .pause(500, done);

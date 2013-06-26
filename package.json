@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js",
+    "start": "node_modules/.bin/forever -a -p logs --minUptime 2000 --spinSleepTime 1000 -l forever.log -o logs/out.log -e logs/err.log start app.js",
+    "stop": "node_modules/.bin/forever stop app.js",
     "test": "grunt test"
   },
   "dependencies": {
@@ -12,7 +13,9 @@
     "consolidate": "~0.9.1",
     "redis": "~0.8.3",
     "connect-redis": "~1.4.5",
-    "uuid": "~1.4.1"
+    "uuid": "~1.4.1",
+    "bunyan": "~0.21.3",
+    "forever": "~0.10.8"
   },
   "devDependencies": {
     "jasmine-node": "~1.9.1",

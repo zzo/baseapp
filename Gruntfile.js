@@ -117,7 +117,7 @@ module.exports = function(grunt) {
                 tests: 'spec/webdriver/*.js'
                 , junitDir: './build/reports/webdriver/'
                 , coverDir: 'public/coverage/webdriver'
-                , browser: grunt.option('browser') || 'firefox'
+                , browser: grunt.option('browser') || 'phantomjs'
             }
         }
         , total_coverage: {

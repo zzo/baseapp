@@ -1,3 +1,5 @@
+[![build status](https://secure.travis-ci.org/zzo/baseapp.png)](http://travis-ci.org/zzo/baseapp)
+
 # NO MORE EXCUSES!
 
 Start your [Express](http://expressjs.com/) project off right with all testing infrastructure set up for you!

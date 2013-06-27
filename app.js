@@ -5,12 +5,12 @@ var express = require('express')
   , http = require('http')
   , cons = require('consolidate')
   , path = require('path')
-  , Bunyan = require('bunyan')
   , RedisExpress = require('connect-redis')(express)
   , redis = require("redis").createClient()
   , im = require('istanbul-middleware')
   , isCoverageEnabled = (process.env.COVERAGE == "true")
   , app = express()
+  , Bunyan = require('bunyan')
   , log = Bunyan.createLogger({
         name: "YOUR_APP"
         , serializers : Bunyan.stdSerializers 
@@ -46,7 +46,7 @@ var routes = require('./routes')
 // all environments
 app.engine('dust', cons.dust);
 app.set('port', process.env.PORT || 3000);
-app.set('host', process.env.HOST || '127.0.0.1');
+app.set('host', process.env.HOST || '0.0.0.0');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'dust');
 app.set('redis', redis);

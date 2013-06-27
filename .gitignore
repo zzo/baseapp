@@ -7,3 +7,4 @@ public/coverage/**
 public/plato/**
 public/build/**
 baseapp.wiki
+logs/*

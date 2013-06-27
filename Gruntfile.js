@@ -45,8 +45,9 @@ module.exports = function(grunt) {
                 options: {
                     server: path.resolve('./app.js')
                     , debug: true
+                    , port: 3000
+                    , host: '127.0.0.1'
                     , bases: 'public'
-                    , host : 'http://<%= env.options.HOST %>:<%= env.options.PORT %>'
                 }
             }
         },
@@ -60,17 +61,15 @@ module.exports = function(grunt) {
         , env: {
             options : {
                 //Shared Options Hash
-                HOST: '127.0.0.1'
-                , PORT: 3000                        
             }
             , test: {
                 NODE_ENV : 'test'
-                , HOST: '127.0.0.1'
+                , HOST: '<%= express.server.options.host %>'
+                , PORT: '<%= express.server.options.port %>'
                 , BROWSER: '<%= webd.options.browser %>'
             }
             , coverage: {
                 COVERAGE: true
-                , HOST: '127.0.0.1'
             }
         }
         , watch: {

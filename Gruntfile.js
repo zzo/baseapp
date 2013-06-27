@@ -159,6 +159,12 @@ module.exports = function(grunt) {
         'plato'
     ]); 
 
+    grunt.registerTask('travis', [
+        'jshint', 
+        'jasmine',
+        'jasmine_node_coverage'
+    ]); 
+
     // webdriver tests with coverage
     grunt.registerTask('webdriver_coverage', [
         'env:test'  // use test db

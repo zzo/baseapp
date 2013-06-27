@@ -24,6 +24,7 @@ var express = require('express')
   , env = app.get('env')
 ;
 
+
 // Make sure redis is alive
 //  this will fail async but that's ok we'll get the message
 redis.ping(function(err) {

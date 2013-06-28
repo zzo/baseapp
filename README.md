@@ -20,7 +20,7 @@ Authentication?
 
 Static Code Analysis?
 
-Travis CI?
+Continuous Integration?
 
 Check And Mate!  IT'S ALL SET UP FOR YOU INCLUDING THE FIRST BATCH OF CLIENT-SIDE AND SERVER-SIDE UNIT TESTS AND WEBDRIVER TESTS - NO EXCUSES!
 

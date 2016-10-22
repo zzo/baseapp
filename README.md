@@ -55,7 +55,7 @@ baseapp uses:
 * [github code repositorying](https://github.com/)
 * [grunt task running and continuous integrating](http://gruntjs.com/)
 * [istanbul code coveraging](https://github.com/gotwarlost/istanbul)
-* [jasmine client-side unit testing](http://pivotal.github.io/jasmine/)
+* [jasmine client-side unit testing](https://jasmine.github.io/)
 * [jasmine-node server-side testing](https://github.com/mhevery/jasmine-node)
 * [jshint code linting](http://www.jshint.com/)
 * [karma continuous integrating](http://karma-runner.github.io/0.8/index.html)
